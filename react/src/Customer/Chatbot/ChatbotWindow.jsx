@@ -15,7 +15,7 @@ const GENERATE_API_URL = `https://generativelanguage.googleapis.com/v1beta/model
 
 // --- Dữ liệu hướng dẫn và sản phẩm ---
 const BOT_INSTRUCTIONS = `
-Hướng dẫn trả lời: Bạn là trợ lý ảo của "Cửa hàng máy tính dân dụng Bài Tập Lớn". Nhiệm vụ của bạn là cung cấp thông tin chính xác và hữu ích cho khách hàng về cửa hàng và các sản phẩm máy tính để bàn (PC) mà cửa hàng đang kinh doanh, dựa **duy nhất** vào dữ liệu được cung cấp trong prompt này.
+Bạn là trợ lý ảo của "Cửa hàng máy tính dân dụng Bài Tập Lớn". Nhiệm vụ của bạn là cung cấp thông tin chính xác và hữu ích cho khách hàng về cửa hàng và các sản phẩm máy tính (chủ yếu là laptop) mà cửa hàng đang kinh doanh, dựa **duy nhất** vào dữ liệu được cung cấp trong prompt này.
 
 **Thông tin cơ bản về cửa hàng:**
 * **Tên cửa hàng:** Cửa hàng máy tính dân dụng Bài Tập Lớn
@@ -26,101 +26,210 @@ Hướng dẫn trả lời: Bạn là trợ lý ảo của "Cửa hàng máy tí
 * **(Tùy chọn)** Số điện thoại liên hệ: [Bạn có thể thêm số điện thoại ở đây nếu muốn bot cung cấp]
 * **(Tùy chọn)** Trang web/Fanpage: [Bạn có thể thêm link ở đây nếu muốn bot cung cấp]
 
-**Thông tin sản phẩm (PC / Máy tính để bàn):**
-Dữ liệu chi tiết về các mẫu máy tính để bàn (PC) mà cửa hàng đang kinh doanh được liệt kê ngay dưới đây. **Đây là nguồn thông tin duy nhất và chính xác** bạn được phép sử dụng để trả lời các câu hỏi về sản phẩm. **TUYỆT ĐỐI KHÔNG** sử dụng kiến thức bên ngoài hoặc thông tin không có trong danh sách này.
+**Thông tin sản phẩm (Laptop):**
+Dữ liệu chi tiết về các mẫu laptop mà cửa hàng đang kinh doanh được liệt kê ngay dưới đây. **Đây là nguồn thông tin duy nhất và chính xác** bạn được phép sử dụng để trả lời các câu hỏi về sản phẩm. **TUYỆT ĐỐI KHÔNG** sử dụng kiến thức bên ngoài hoặc thông tin không có trong danh sách này.
 
+--- Dữ liệu Laptop ---
+Laptop ID: 1
+Model: 14s-dq5121TU
+Brand: HP
+Price: 12990000
+Discount Percent: 14.0
+Battery Charger: Dung lượng 45W
+Created At: 2024-12-21 19:46:43.422860
+Design: 32.4 x 22.5 x 1.79 cm, nặng 1.36 kg, mặt lưng nhựa
+Disk Capacity: 512 GB
+Disk Detail: SSD 1 M2 PCIe, không hỗ trợ nâng cấp
+Keyboard Type:  Chiclet Keyboard
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: DDR4, 2 khe cắm rời, hỗ trợ tối đa 32 GB
+RAM Memory: 8 GB
+Screen Detail:  Anti-glare LED-backlit, 1920 x 1080 pixels (16:9)
+Screen Size: 14.0 inches
+Status: NULL
+Warranty: 12 months
+CPU: Intel Core i3 1215U (Speed: 1.2 GHz, Max Speed: 4.4 GHz, Cores: 6, Threads: 8, Cache: 10.0 MB)
+OS Version: Windows 11 Home
+Categories: Văn Phòng, AI
+Colors: Bạc (Quantity: 100)
+GPUs: Intel UHD Graphics (Integrated, Memory: Unknown)
 
-Thông tin chi tiết các PC trong cơ sở dữ liệu PC_Shop:
+-----------------------------------
 
----
+Laptop ID: 2
+Model: TUF Gaming FA507NUR LP101W
+Brand: Asus
+Price: 28490000
+Discount Percent: 16.0
+Battery Charger: Dung lượng 90W, Sạc 240W
+Created At: 2024-12-21 19:57:03.608893
+Design:  35.97 x 23.25 x 1.79 ~ 1.79 cm, nặng 2.2 kg, mặt lưng kim loại
+Disk Capacity: 512 GB
+Disk Detail: SSD 1 M2 NVMe, 2 khe cắm, hỗ trợ nâng cấp tối đa 1TB
+Keyboard Type:  Backlit Chiclet Keyboard
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: DDR5, 2 khe cắm rời, hỗ trợ tối đa 32 GB
+RAM Memory: 16 GB
+Screen Detail:  Anti-glare LED, 1920 x 1080 pixels (16:9), tần số quét 144, tấm nền IPS
+Screen Size: 15.6 inches
+Status: NULL
+Warranty: 24 months
+CPU: AMD Ryzen 7 7435HS (Speed: 3.1 GHz, Max Speed: 4.5 GHz, Cores: 8, Threads: 16, Cache: 20.0 MB)
+OS Version: Windows 11 Home
+Categories: Gaming - đồ họa, AI
+Colors: Xám (Quantity: 100)
+GPUs:
+  - Unknown Unknown (Integrated, Memory: Unknown)
+  - NVIDIA GeForce RTX 4050 (Dedicated, Memory: 6GB GDDR6, TOPS: 194)
 
-**1. PC Đồ Họa AI - Ryzen 9 9950X/ 64GB/ RTX 5090 (ID: 1)**
+-----------------------------------
 
-Mã sản phẩm (ID): 1
-Model: PC Đồ Họa AI - Ryzen 9 9950X/ 64GB/ RTX 5090
-Thương hiệu PC: Unknown (Không rõ hãng lắp ráp/bán)
-Loại: Gaming, Đồ họa
-Giá gốc: 100,000,000 VND
-Giảm giá: 10%
-Giá sau giảm giá: 90,000,000 VND
-CPU: AMD Ryzen 9 9950X (16 nhân, 32 luồng, 3.5 GHz - 5.7 GHz, 64MB Cache)
-GPU: NVIDIA RTX 5090 (24GB VRAM)
-RAM: 64GB DDR4
-Ổ cứng: 2000GB SSD (2TB)
-Nguồn (PSU): 1300W
-Hệ điều hành: Windows 10
-Màu sắc: Đen (Số lượng: 10)
-Bảo hành: 12 tháng
-Thông tin thêm: Thiết kế Phổ thông, Xuất xứ Trung Quốc, Không kèm màn hình, Không kèm bàn phím.
-Ngày tạo: 2025-04-07 20:34:07
+Laptop ID: 3
+Model: Macbook Air M3 13 2024
+Brand: Apple
+Price: 28490000
+Discount Percent: 14.0
+Battery Charger: Dung lượng 30W
+Created At: 2024-12-21 20:10:29.961999
+Design: 30.41 x 21.5 x 1.13 cm, 1.24 kg, vỏ nhôm
+Disk Capacity: 256 GB
+Disk Detail: SSD
+Keyboard Type:  English International Backlit Keyboard
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: LPDDR4, hỗ trợ tối đa 16GB
+RAM Memory: 16 GB
+Screen Detail: Liquid Retina  2560 x 1644 pixels, tần số quét 60Hz, tầm nền IPS
+Screen Size: 13.6 inches
+Status: NULL
+Warranty: 12 months
+CPU: Apple M3 8-Core (Speed: NULL, Max Speed: NULL, Cores: NULL, Threads: NULL, Cache: NULL MB)
+OS Version: Windows 10 Home (Note: OS seems inconsistent with Apple brand)
+Categories: Văn Phòng, Gaming - đồ họa, AI
+Colors:
+  - Đen (Quantity: 100)
+  - Vàng (Quantity: 100)
+  - Xám (Quantity: 100)
+  - Bạc (Quantity: 100)
+GPUs: Unknown Unknown (Integrated, Memory: Unknown)
 
----
+-----------------------------------
 
-**2. PC GVN Intel i3-12100F/ VGA RX 6500XT (Powered by ASUS) (ID: 2)**
+Laptop ID: 4
+Model: IdeaPad 3 14IAH8
+Brand: Lenovo
+Price: 15990000
+Discount Percent: 17.0
+Battery Charger: Dung lượng 90Wh, sạc 65W
+Created At: 2024-12-23 16:36:14.287132
+Design:  324.3 x 213.8 x 17.9 mm, nặng 1.37 kg, vỏ nhựa
+Disk Capacity: 512 GB
+Disk Detail: SSD M2. PCIe1
+Keyboard Type:  Bàn phím cứng
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: DDR5, 2 khe cắm, hỗ trợ tối đa 16GB
+RAM Memory: 16 GB
+Screen Detail: Anti-Glare 1920 x 1080 pixels, tần số quét 60Hz, tầm nền IPS
+Screen Size: 14.0 inches
+Status: NULL
+Warranty: 24 months
+CPU: Intel Core i5 12450H (Speed: 3.3 GHz, Max Speed: 4.4 GHz, Cores: 8, Threads: 12, Cache: 12.0 MB)
+OS Version: Windows 11 Home
+Categories: Gaming - đồ họa, AI
+Colors: Xám (Quantity: 100)
+GPUs: Intel UHD Graphics (Integrated, Memory: Unknown)
 
-Mã sản phẩm (ID): 2
-Model: PC GVN Intel i3-12100F/ VGA RX 6500XT (Powered by ASUS)
-Thương hiệu PC: ASUS
-Loại: Văn Phòng
-Giá gốc: 10,000,000 VND
-Giảm giá: 10%
-Giá sau giảm giá: 9,000,000 VND
-CPU: Intel Core i3-12100F (4 nhân, 8 luồng, 3.3 GHz - 4.3 GHz, 12MB Cache)
-GPU: ASUS RX 6500XT (4GB VRAM)
-RAM: 16GB DDR4
-Ổ cứng: 500GB SSD
-Nguồn (PSU): 650W
-Hệ điều hành: Windows 10
-Màu sắc: Đen (Số lượng: 10)
-Bảo hành: 12 tháng
-Thông tin thêm: Thiết kế Phổ thông, Xuất xứ Trung Quốc, Không kèm màn hình (ghi 1 inch có thể là lỗi nhập liệu), Không kèm bàn phím.
-Ngày tạo: 2025-04-07 20:43:27
+-----------------------------------
 
----
+Laptop ID: 5
+Model: Gaming Thin A15 B7UC-261VN
+Brand: MSI
+Price: 21990000
+Discount Percent: 20.0
+Battery Charger: Dung lượng 52.4Wh, sạc 120W
+Created At: 2024-12-23 16:49:07.002058
+Design: 359 x 254 x 21.7 mm, nặng 1.86 kg, vỏ nhựa + kim loại
+Disk Capacity: 512 GB
+Disk Detail: SSD 1 M.2 NVMe
+Keyboard Type: Single Backlit Keyboard
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: DDR5, 2 khe cắm, hỗ trợ tối đa 64GB
+RAM Memory: 16 GB
+Screen Detail: Anti-Glare LED-Backlit Display 1920 x 1080 pixels, tần số quét 144, tấm nền IPSHz, tầm nền IPS
+Screen Size: 15.6 inches
+Status: NULL
+Warranty: 24 months
+CPU: AMD Ryzen 5 7535HS (Speed: 3.3 GHz, Max Speed: 4.5 GHz, Cores: 6, Threads: 12, Cache: 16.0 MB)
+OS Version: Windows 11 Home
+Categories: Gaming - đồ họa, AI
+Colors: Xám (Quantity: 100)
+GPUs:
+  - Unknown Unknown (Integrated, Memory: Unknown)
+  - NVIDIA GeForce RTX 3050 (Dedicated, Memory: 4GB GDDR6, TOPS: 143)
 
-**3. PC GVN Homework i3 - GT (ID: 3)**
+-----------------------------------
 
-Mã sản phẩm (ID): 3
-Model: PC GVN Homework i3 - GT
-Thương hiệu PC: Unknown (Không rõ hãng lắp ráp/bán)
-Loại: Văn Phòng
-Giá gốc: 10,000,000 VND
-Giảm giá: 10%
-Giá sau giảm giá: 9,000,000 VND
-CPU: Intel Core i3-10105F (4 nhân, 4 luồng, 3.0 GHz - 4.3 GHz, 12MB Cache)
-GPU: NVIDIA GT1030 (2GB VRAM)
-RAM: 8GB DDR4
-Ổ cứng: 256GB SSD
-Nguồn (PSU): 400W
-Hệ điều hành: Windows 10
-Màu sắc: Đen (Số lượng: 10)
-Bảo hành: 12 tháng
-Thông tin thêm: Thiết kế Phổ thông, Xuất xứ Không rõ, Không kèm màn hình (ghi 0.1 inch có thể là lỗi nhập liệu), Không kèm bàn phím.
-Ngày tạo: 2025-04-07 21:18:45
+Laptop ID: 6
+Model: Nitro 5 Tiger Gaming AN515-58-5193
+Brand: Acer
+Price: 26990000
+Discount Percent: 28.0
+Battery Charger: Pin Lithium-ion 4 cells
+Created At: 2024-12-23 17:06:22.338815
+Design:  360.4 x 271.09 x 25.9 mm, nặng 2.5kg, vỏ nhựa
+Disk Capacity: 512 GB
+Disk Detail: SSD M.2 NVMe, 1 khe cắm HDD + 2 khe SSD, nâng cấp tối đa 1TB (HDD) và 2TB (SSD)
+Keyboard Type:  English International Backlit Keyboard, RGB 4 Zone
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: DDR5, 2 khe cắm, hỗ trợ tối đa 32GB
+RAM Memory: 16 GB
+Screen Detail:  Acer ComfyView LED-backlit  1920 x 1200 pixels, tần số quét 144Hz, tấm nền IPS
+Screen Size: 15.6 inches
+Status: NULL
+Warranty: 24 months
+CPU: Intel Core i5 12450H (Speed: 3.3 GHz, Max Speed: 4.4 GHz, Cores: 8, Threads: 12, Cache: 12.0 MB)
+OS Version: Windows 11 Home
+Categories: Gaming - đồ họa, AI
+Colors: Đen (Quantity: 100)
+GPUs:
+  - NVIDIA GeForce RTX 4050 (Dedicated, Memory: 6GB GDDR6, TOPS: 194)
+  - Intel Iris Xe Graphics (Integrated, Memory: Unknown)
 
----
+-----------------------------------
 
-**4. PC GVN Intel i5-12400F/ VGA RTX 4060 (ID: 4)**
+Laptop ID: 8
+Model: Inspiron N3530
+Brand: Dell
+Price: 19990000
+Discount Percent: 10.0
+Battery Charger: Pin Lithium-ion 3 cells
+Created At: 2024-12-23 17:29:44.112814
+Design:  358.50 x 235.56 x 18.99 mm, nặng 1.66 kg, vỏ nhựa
+Disk Capacity: 512 GB
+Disk Detail: SSD M.2 PCIe
+Keyboard Type:  English International Non-backlit Keyboard
+Num Ratings: 0
+Origin: Trung Quốc
+RAM Detail: DDR4, hỗ trợ tối đa 16GB
+RAM Memory: 16 GB
+Screen Detail:  Anti-Glare LED Backlit, 1920 x 1080 pixels, tần số quét 120 Hz, tấm nền WVA
+Screen Size: 15.6 inches
+Status: NULL
+Warranty: 12 months
+CPU: Intel Core i5 1334U (Speed: 1.3 GHz, Max Speed: 4.6 GHz, Cores: NULL, Threads: NULL, Cache: NULL MB)
+OS Version: Windows 11 Home
+Categories: Văn Phòng, AI
+Colors: Bạc (Quantity: 100)
+GPUs: Intel Iris Xe Graphics (Integrated, Memory: Unknown)
 
-Mã sản phẩm (ID): 4
-Model: PC GVN Intel i5-12400F/ VGA RTX 4060
-Thương hiệu PC: Unknown (Không rõ hãng lắp ráp/bán)
-Loại: Gaming
-Giá gốc: 20,000,000 VND
-Giảm giá: 15%
-Giá sau giảm giá: 17,000,000 VND
-CPU: Intel Core i5-12400F (6 nhân, 12 luồng, 2.5 GHz - 4.4 GHz, 18MB Cache)
-GPU: NVIDIA RTX 4060 (8GB VRAM)
-RAM: 32GB DDR4
-Ổ cứng: 1000GB SSD (1TB)
-Nguồn (PSU): 650W
-Hệ điều hành: Windows 10
-Màu sắc: Đen (Số lượng: 10)
-Bảo hành: 12 tháng
-Thông tin thêm: Thiết kế Phổ thông, Xuất xứ Trung Quốc, Không kèm màn hình, Không kèm bàn phím.
-Ngày tạo: 2025-04-07 21:37:31
+-----------------------------------
 
----
+--- Câu hỏi của khách hàng ---
 `;
 // ---------------------------------
 
