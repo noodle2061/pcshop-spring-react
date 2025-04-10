@@ -1,0 +1,14 @@
+.animation-slide-down {
+  animation: slideDown 0.5s ease forwards; /* Áp dụng animation */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%); /* Bắt đầu từ ngoài màn hình */
+    opacity: 0; /* Bắt đầu với độ mờ */
+  }
+  to {
+    transform: translateY(0); /* Kết thúc ở vị trí ban đầu */
+    opacity: 1; /* Hiển thị rõ ràng */
+  }
+}
